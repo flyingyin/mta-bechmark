@@ -48,9 +48,10 @@ FROM (
                     cce.category AS internal_category,
                     NULL AS dummy
                 FROM action_tag_primary_identity ati
-                JOIN conversion_contributor_event cce
-                ON ati.hashed_fbid = cce.hashed_fbid
+                JOIN advertiser_primary_identity advti ON ati.hashed_fbid = advti.hashed_fbid
+                JOIN conversion_contributor_event cce ON ati.hashed_fbid = cce.hashed_fbid
                 WHERE ati.action_tag_fbid IN (11227200814519)
+                    AND advti.advertiser_fbid IN (11227200767451)
                     AND cce.action_tag_fbid IN (11227200814519, 0)
                     AND cce.advertiser_fbid IN (11227200767451)
                     AND cce.hashed_fbid <> 0
@@ -138,10 +139,10 @@ FROM (
                         cce.category AS internal_category,
                         NULL AS dummy
                     FROM action_tag_secondary_identity ati
-                    JOIN conversion_contributor_event cce
-                    ON ati.native_identity_provider = cce.native_identity_provider
-                        AND ati.native_identity_value = cce.native_identity_value
-                    WHERE ati.action_tag_fbid IN (11227200814519)
+                    JOIN advertiser_secondary_identity advti ON ati.native_identity_provider = advti.native_identity_provider AND ati.native_identity_value = advti.native_identity_value
+                    JOIN conversion_contributor_event cce ON ati.native_identity_provider = cce.native_identity_provider AND ati.native_identity_value = cce.native_identity_value
+                WHERE ati.action_tag_fbid IN (11227200814519)
+                    AND advti.advertiser_fbid IN (11227200767451)
                         AND cce.action_tag_fbid IN (11227200814519, 0)
                         AND cce.advertiser_fbid IN (11227200767451)
                         AND cce.hashed_fbid = 0 AND cce.native_identity_value <> ''
