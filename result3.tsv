@@ -1,0 +1,3 @@
+suite	query	wallTimeP50	wallTimeMean	wallTimeStd	processCpuTimeP50	processCpuTimeMean	processCpuTimeStd	queryCpuTimeP50	queryCpuTimeMean	queryCpuTimeStd	status	error
+file_formats	old	33775	33571	749	13579	13332	648	3045	3040	15	pass	
+file_formats	merge-adv-with-hot-id	77230	78614	2655	51902	52834	4415	38871	39478	4147	pass	

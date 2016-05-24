@@ -1,0 +1,3 @@
+suite	query	wallTimeP50	wallTimeMean	wallTimeStd	processCpuTimeP50	processCpuTimeMean	processCpuTimeStd	queryCpuTimeP50	queryCpuTimeMean	queryCpuTimeStd	status	error
+file_formats	old	0	0	0	0	0	0	0	0	0	fail	line 82:21: Column '"ce"."event_ts"' cannot be resolved
+file_formats	merge-adv-with-hot-id	84536	83343	10482	57042	57611	1529	41107	41190	249	pass	
