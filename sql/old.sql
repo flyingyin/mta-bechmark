@@ -80,7 +80,7 @@ FROM (
                 AND c.event_ts < ce.internal_conversion_event_ts + 20
                 AND ((c.category IN (3,5) AND c.event_ts >= ce.internal_conversion_event_ts - 2592000)
                     OR (c.category = 0 AND c.event_ts >= ce.internal_conversion_event_ts - 432000))
-                AND c.event_ts between 1457769600 and 1463036400
+                AND c.event_ts between 1452585600 and 1463036400
             AND NOT (c.hashed_fbid = 1097334974130218754)
             AND NOT (c.hashed_fbid = 1223170964065720141)
             AND NOT (c.hashed_fbid = 2376733277266567740)
@@ -182,7 +182,7 @@ FROM (
                 AND c.event_ts < ce.internal_conversion_event_ts + 20
                 AND ((c.category IN (3,5) AND c.event_ts >= ce.internal_conversion_event_ts - 2592000)
                     OR (c.category = 0 AND c.event_ts >= ce.internal_conversion_event_ts - 432000))
-                AND c.event_ts between 1457769600 and 1463036400
+                AND c.event_ts between 1452585600 and 1463036400
             AND NOT (c.hashed_fbid = 1097334974130218754)
             AND NOT (c.hashed_fbid = 1223170964065720141)
             AND NOT (c.hashed_fbid = 2376733277266567740)

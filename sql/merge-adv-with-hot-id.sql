@@ -50,7 +50,7 @@ FROM (
                 FROM conversion_contributor_event cce
                 WHERE advertiser_fbid IN ( 11152200768503 )
                     AND action_tag_fbid IN (0, 11152200942590)
-                    AND ((cce.category IN (2) AND cce.event_ts between 1460444400 and 1463036400) OR (cce.category IN (0,3,5) AND cce.event_ts between 1457769600 and 1463036400))
+                    AND ((cce.category IN (2) AND cce.event_ts between 1460444400 and 1463036400) OR (cce.category IN (0,3,5) AND cce.event_ts between 1452585600 and 1463036400))
                     AND cce.hashed_fbid <> 0
                     AND NOT (cce.hashed_fbid = 1097334974130218754)
                     AND NOT (cce.hashed_fbid = 1223170964065720141)
@@ -126,7 +126,7 @@ FROM (
                     FROM conversion_contributor_event cce
                     WHERE advertiser_fbid IN ( 11152200768503 )
                         AND action_tag_fbid IN (0, 11152200942590)
-                        AND ((cce.category IN (2) AND cce.event_ts between 1460444400 and 1463036400) OR (cce.category IN (0,3,5) AND cce.event_ts between 1457769600 and 1463036400))
+                        AND ((cce.category IN (2) AND cce.event_ts between 1460444400 and 1463036400) OR (cce.category IN (0,3,5) AND cce.event_ts between 1452585600 and 1463036400))
                         AND cce.hashed_fbid = 0 AND cce.native_identity_value <> ''
                         AND NOT (cce.hashed_fbid = 1097334974130218754)
                         AND NOT (cce.hashed_fbid = 1223170964065720141)
