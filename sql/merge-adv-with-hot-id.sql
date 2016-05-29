@@ -21,10 +21,10 @@ FROM (
         NULL AS dummy
     FROM (
         SELECT *,
-            atlas_attribution_last_click_click_based_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11227200814519":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_hashed_fbid ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_click_based_last_touch,
-            atlas_attribution_even_credit_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11227200814519":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_hashed_fbid ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_full_path,
-            atlas_attribution_last_click_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11227200814519":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_hashed_fbid ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_last_touch,
-            atlas_attribution_last_click_view_based_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11227200814519":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_hashed_fbid ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_view_based_last_touch,
+            atlas_attribution_last_click_click_based_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11152200942590":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_hashed_fbid ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_click_based_last_touch,
+            atlas_attribution_even_credit_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11152200942590":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_hashed_fbid ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_full_path,
+            atlas_attribution_last_click_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11152200942590":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_hashed_fbid ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_last_touch,
+            atlas_attribution_last_click_view_based_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11152200942590":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_hashed_fbid ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_view_based_last_touch,
             NULL AS dummy
         FROM (
             SELECT *,
@@ -48,9 +48,9 @@ FROM (
                     cce.category AS internal_category,
                     NULL AS dummy
                 FROM conversion_contributor_event cce
-                WHERE advertiser_fbid IN ( 11227200767451 )
-                    AND action_tag_fbid IN (0, 11227200814519)
-                    AND ((category IN (2) AND event_ts between 1452585600 and 1463122800) OR (category IN (0,3,5) AND event_ts between 1452585600 and 1463122800))
+                WHERE advertiser_fbid IN ( 11152200768503 )
+                    AND action_tag_fbid IN (0, 11152200942590)
+                    AND ((cce.category IN (2) AND cce.event_ts between 1460444400 and 1463036400) OR (cce.category IN (0,3,5) AND cce.event_ts between 1457769600 and 1463036400))
                     AND cce.hashed_fbid <> 0
                     AND NOT (cce.hashed_fbid = 1097334974130218754)
                     AND NOT (cce.hashed_fbid = 1223170964065720141)
@@ -78,7 +78,7 @@ FROM (
             OR attr.conversions_full_path <> 0.0
             OR attr.conversions_last_touch <> 0.0
             OR attr.conversions_view_based_last_touch <> 0.0)
-            AND attr.advertiser_id IN (11227200767451)
+            AND attr.advertiser_id IN (11152200768503)
         GROUP BY 1, 2, 3, 4
 
         UNION ALL
@@ -95,10 +95,10 @@ FROM (
             NULL AS dummy
         FROM (
             SELECT *,
-                atlas_attribution_last_click_click_based_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11227200814519":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_native_identity_provider,internal_native_identity_value ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_click_based_last_touch,
-                atlas_attribution_even_credit_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11227200814519":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_native_identity_provider,internal_native_identity_value ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_full_path,
-                atlas_attribution_last_click_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11227200814519":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_native_identity_provider,internal_native_identity_value ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_last_touch,
-                atlas_attribution_last_click_view_based_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11227200814519":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_native_identity_provider,internal_native_identity_value ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_view_based_last_touch,
+                atlas_attribution_last_click_click_based_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11152200942590":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_native_identity_provider,internal_native_identity_value ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_click_based_last_touch,
+                atlas_attribution_even_credit_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11152200942590":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_native_identity_provider,internal_native_identity_value ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_full_path,
+                atlas_attribution_last_click_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11152200942590":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_native_identity_provider,internal_native_identity_value ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_last_touch,
+                atlas_attribution_last_click_view_based_new(internal_timestamp,internal_category,255,internal_action_tag_fbid,'{"query_params_map":{"11152200942590":{"click_window_seconds":2592000,"view_window_seconds":432000,"repeated_conversion_widow_seconds":60,"order_id_window_seconds":0,"is_revenue_enabled":false,"advertiser_fbids":[11022200790603],"deleted_offline_action_batch_fbids":[0]}}}',placement_id,ad_id,creative_id,audience_id,ad_event_id) OVER (PARTITION BY internal_native_identity_provider,internal_native_identity_value ORDER BY internal_timestamp,internal_action_tag_fbid) AS conversions_view_based_last_touch,
                 NULL AS dummy
             FROM (
                 SELECT *,
@@ -124,9 +124,9 @@ FROM (
                         cce.category AS internal_category,
                         NULL AS dummy
                     FROM conversion_contributor_event cce
-                    WHERE advertiser_fbid IN ( 11227200767451 )
-                        AND action_tag_fbid IN (0, 11227200814519)
-                        AND ((category IN (2) AND event_ts between 1452585600 and 1463122800) OR (category IN (0,3,5) AND event_ts between 1452585600 and 1463122800))
+                    WHERE advertiser_fbid IN ( 11152200768503 )
+                        AND action_tag_fbid IN (0, 11152200942590)
+                        AND ((cce.category IN (2) AND cce.event_ts between 1460444400 and 1463036400) OR (cce.category IN (0,3,5) AND cce.event_ts between 1457769600 and 1463036400))
                         AND cce.hashed_fbid = 0 AND cce.native_identity_value <> ''
                         AND NOT (cce.hashed_fbid = 1097334974130218754)
                         AND NOT (cce.hashed_fbid = 1223170964065720141)
@@ -154,7 +154,7 @@ FROM (
                 OR attr.conversions_full_path <> 0.0
                 OR attr.conversions_last_touch <> 0.0
                 OR attr.conversions_view_based_last_touch <> 0.0)
-                AND attr.advertiser_id IN (11227200767451)
+                AND attr.advertiser_id IN (11152200768503)
             GROUP BY 1, 2, 3, 4
         ) attr_all
         GROUP BY 1, 2, 3, 4

@@ -51,11 +51,11 @@ FROM (
                         ce.action_tag_fbid AS internal_action_tag_fbid,
                         NULL AS dummy
                     FROM conversion_events ce
-                    WHERE action_tag_fbid IN ( 11227200814519 )
+                    WHERE action_tag_fbid IN ( 11152200942590 )
                         AND ( ce.offline_action_batch_fbid = 0
                         OR ce.offline_action_batch_fbid NOT IN ( 0 ) )
                         AND ce.hashed_fbid <> 0
-                        AND ce.event_ts between 1452585600 and 1463122800
+                        AND ce.event_ts between 1460444400 and 1463036400
                     AND NOT (ce.hashed_fbid = 1097334974130218754)
                     AND NOT (ce.hashed_fbid = 1223170964065720141)
                     AND NOT (ce.hashed_fbid = 2376733277266567740)
@@ -76,11 +76,11 @@ FROM (
             ) ce
             INNER JOIN contributors c
                 ON c.hashed_fbid = ce.internal_hashed_fbid
-            WHERE c.advertiser_fbid IN ( 11227200767451 )
+            WHERE c.advertiser_fbid IN ( 11152200768503 )
                 AND c.event_ts < ce.internal_conversion_event_ts + 20
                 AND ((c.category IN (3,5) AND c.event_ts >= ce.internal_conversion_event_ts - 2592000)
                     OR (c.category = 0 AND c.event_ts >= ce.internal_conversion_event_ts - 432000))
-                AND c.event_ts between 1452585600 and 1463122800
+                AND c.event_ts between 1457769600 and 1463036400
             AND NOT (c.hashed_fbid = 1097334974130218754)
             AND NOT (c.hashed_fbid = 1223170964065720141)
             AND NOT (c.hashed_fbid = 2376733277266567740)
@@ -104,7 +104,7 @@ FROM (
         OR attr.conversions_full_path <> 0.0
         OR attr.conversions_last_touch <> 0.0
         OR attr.conversions_view_based_last_touch <> 0.0)
-        AND attr.advertiser_id IN (11227200767451)
+        AND attr.advertiser_id IN (11152200768503)
     GROUP BY 1, 2, 3, 4
 
     UNION ALL
@@ -152,11 +152,11 @@ FROM (
                         ce.action_tag_fbid AS internal_action_tag_fbid,
                         NULL AS dummy
                     FROM conversion_events ce
-                    WHERE action_tag_fbid IN ( 11227200814519 )
+                    WHERE action_tag_fbid IN ( 11152200942590 )
                         AND ( ce.offline_action_batch_fbid = 0
                         OR ce.offline_action_batch_fbid NOT IN ( 0 ) )
                         AND ce.hashed_fbid = 0 AND ce.native_identity_value <> ''''
-                        AND ce.event_ts between 1452585600 and 1463122800
+                        AND ce.event_ts between 1460444400 and 1463036400
                     AND NOT (ce.hashed_fbid = 1097334974130218754)
                     AND NOT (ce.hashed_fbid = 1223170964065720141)
                     AND NOT (ce.hashed_fbid = 2376733277266567740)
@@ -178,11 +178,11 @@ FROM (
             INNER JOIN contributors c
                 ON c.native_identity_provider = ce.internal_native_identity_provider
                 AND c.native_identity_value = ce.internal_native_identity_value
-            WHERE c.advertiser_fbid IN ( 11227200767451 )
+            WHERE c.advertiser_fbid IN ( 11152200768503 )
                 AND c.event_ts < ce.internal_conversion_event_ts + 20
                 AND ((c.category IN (3,5) AND c.event_ts >= ce.internal_conversion_event_ts - 2592000)
                     OR (c.category = 0 AND c.event_ts >= ce.internal_conversion_event_ts - 432000))
-                AND c.event_ts between 1452585600 and 1463122800
+                AND c.event_ts between 1457769600 and 1463036400
             AND NOT (c.hashed_fbid = 1097334974130218754)
             AND NOT (c.hashed_fbid = 1223170964065720141)
             AND NOT (c.hashed_fbid = 2376733277266567740)
@@ -206,7 +206,7 @@ FROM (
         OR attr.conversions_full_path <> 0.0
         OR attr.conversions_last_touch <> 0.0
         OR attr.conversions_view_based_last_touch <> 0.0)
-        AND attr.advertiser_id IN (11227200767451)
+        AND attr.advertiser_id IN (11152200768503)
     GROUP BY 1, 2, 3, 4
 ) attr_all
 GROUP BY 1, 2, 3, 4 ORDER BY 1,2,3,4
