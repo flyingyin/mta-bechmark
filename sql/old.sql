@@ -55,7 +55,7 @@ FROM (
                         AND ( ce.offline_action_batch_fbid = 0
                         OR ce.offline_action_batch_fbid NOT IN ( 0 ) )
                         AND ce.hashed_fbid <> 0
-                        AND ce.event_ts between 1460444400 and 1463036400
+                        AND ce.event_ts between 1462086000 and 1464764400
                     AND NOT (ce.hashed_fbid = 1097334974130218754)
                     AND NOT (ce.hashed_fbid = 1223170964065720141)
                     AND NOT (ce.hashed_fbid = 2376733277266567740)
@@ -79,8 +79,8 @@ FROM (
             WHERE c.advertiser_fbid IN ( 11152200768503 )
                 AND c.event_ts < ce.internal_conversion_event_ts + 20
                 AND ((c.category IN (3,5) AND c.event_ts >= ce.internal_conversion_event_ts - 2592000)
-                    OR (c.category = 0 AND c.event_ts >= ce.internal_conversion_event_ts - 432000))
-                AND c.event_ts between 1452585600 and 1463036400
+                    OR (c.category = 0 AND c.event_ts >= ce.internal_conversion_event_ts - 2592000))
+                AND c.event_ts between 1459494000 and 1464764400
             AND NOT (c.hashed_fbid = 1097334974130218754)
             AND NOT (c.hashed_fbid = 1223170964065720141)
             AND NOT (c.hashed_fbid = 2376733277266567740)
@@ -156,7 +156,7 @@ FROM (
                         AND ( ce.offline_action_batch_fbid = 0
                         OR ce.offline_action_batch_fbid NOT IN ( 0 ) )
                         AND ce.hashed_fbid = 0 AND ce.native_identity_value <> ''''
-                        AND ce.event_ts between 1460444400 and 1463036400
+                        AND ce.event_ts between 1462086000 and 1464764400
                     AND NOT (ce.hashed_fbid = 1097334974130218754)
                     AND NOT (ce.hashed_fbid = 1223170964065720141)
                     AND NOT (ce.hashed_fbid = 2376733277266567740)
@@ -181,8 +181,8 @@ FROM (
             WHERE c.advertiser_fbid IN ( 11152200768503 )
                 AND c.event_ts < ce.internal_conversion_event_ts + 20
                 AND ((c.category IN (3,5) AND c.event_ts >= ce.internal_conversion_event_ts - 2592000)
-                    OR (c.category = 0 AND c.event_ts >= ce.internal_conversion_event_ts - 432000))
-                AND c.event_ts between 1452585600 and 1463036400
+                    OR (c.category = 0 AND c.event_ts >= ce.internal_conversion_event_ts - 2592000))
+                AND c.event_ts between 1459494000 and 1464764400
             AND NOT (c.hashed_fbid = 1097334974130218754)
             AND NOT (c.hashed_fbid = 1223170964065720141)
             AND NOT (c.hashed_fbid = 2376733277266567740)
