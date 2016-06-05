@@ -74,8 +74,6 @@ FROM (
             ) cc
             WHERE NOT internal_is_repeated
         ) attr
-        INNER JOIN placement ON placement.fbid = attr.placement_id
-        INNER JOIN site ON site.fbid = placement.site_fbid
         WHERE (attr.conversions_click_based_last_touch <> 0.0
             OR attr.conversions_full_path <> 0.0
             OR attr.conversions_last_touch <> 0.0
@@ -152,8 +150,6 @@ FROM (
                 ) cc
                 WHERE NOT internal_is_repeated
             ) attr
-            INNER JOIN placement ON placement.fbid = attr.placement_id
-            INNER JOIN site ON site.fbid = placement.site_fbid
             WHERE (attr.conversions_click_based_last_touch <> 0.0
                 OR attr.conversions_full_path <> 0.0
                 OR attr.conversions_last_touch <> 0.0

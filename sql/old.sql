@@ -209,4 +209,4 @@ FROM (
         AND attr.advertiser_id IN (11152200768503)
     GROUP BY 1, 2, 3, 4
 ) attr_all
-GROUP BY 1, 2, 3, 4 ORDER BY 1,2,3,4
+GROUP BY 1, 2, 3, 4
